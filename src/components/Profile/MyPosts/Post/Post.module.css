@@ -1,8 +1,13 @@
 .item {
     display: flex;
     flex-direction: row;
-    color: greenyellow;
+    color: #1f2544;
     margin-top: 10px;
+}
+
+.likesAndMessage {
+    display: flex;
+    flex-direction: column;
 }
 
 .item img {

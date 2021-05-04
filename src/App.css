@@ -9,3 +9,10 @@
     margin-right: 150px;
     margin-top: 30px;
 }
+.appWrapperContent {
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    margin-left: 20px;
+    background-color: #8b97fa;
+}

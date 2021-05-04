@@ -1,0 +1,31 @@
+.dialogs {
+    display: flex;
+    flex-direction: row;
+}
+
+.dialogsItem {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.dialog {
+    display: flex;
+    padding-top: 5px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.message {
+    display: flex;
+    padding-top: 5px;
+}
+
+.a {
+    color: #515c9d;
+    text-decoration: none;
+}

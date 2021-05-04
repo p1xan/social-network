@@ -1,0 +1,18 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    background-color: #8b97fa;
+    height: 300px;
+    padding:20px 20px 20px 20px;
+}
+
+.item a {
+    color: #515c9d;
+    text-decoration: none;
+}
+
+.item a.active {
+    color:#1f2544
+}
+
