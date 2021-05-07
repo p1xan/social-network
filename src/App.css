@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .contentNavWrapper {
     display: flex;
     flex-direction: row;
@@ -9,6 +10,7 @@
     margin-right: 150px;
     margin-top: 30px;
 }
+
 .appWrapperContent {
     display: flex;
     width: 85%;

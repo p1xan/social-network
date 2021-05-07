@@ -1,18 +1,19 @@
 import React from "react";
-import myPosts from "./MyPosts.module.css"
+import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
+const MyPosts = (props) => {
 
-const MyPosts = () => {
+    let posts = props.postsData.map(post => <Post message={post.message} like={post.like}/>)
+
     return (
-        <div>
-            My posts
-            <div className={myPosts.posts}>
-                <textarea className={myPosts.textarea}></textarea>
-                <button className={myPosts.button}>add post</button>
+        <div className={styles.wrapper}>
+            <h3 className={styles.myPost}>My posts</h3>
+            <div className={styles.posts}>
+                <div><textarea className={styles.textarea} placeholder="wooops"></textarea></div>
+                <div><button className={styles.button}>add post</button></div>
             </div>
-            <Post message="post1" like="10"/>
-            <Post message="post2" like="15"/>
+            {posts}
         </div>
     )
 }

@@ -23,9 +23,15 @@
 .message {
     display: flex;
     padding-top: 5px;
+    color: #1f2544;
 }
 
-.a {
+.dialog a {
+
     color: #515c9d;
     text-decoration: none;
+}
+
+.dialog a.active {
+    color: #1f2544;
 }
