@@ -9,7 +9,6 @@ import {BrowserRouter, Route} from "react-router-dom"
 
 const App = (props) => {
     return (
-        <BrowserRouter>
             <div className="appWrapper">
                 <Header/>
                 <div className="contentNavWrapper">
@@ -23,7 +22,6 @@ const App = (props) => {
                     </div>
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 
