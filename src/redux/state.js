@@ -1,3 +1,7 @@
+let rerenderEntireTree = () => {
+
+}
+
 let state = {
     profilePage: {
         postsData: [
@@ -5,6 +9,7 @@ let state = {
             {id: 2, message: 'post2', like: 11},
             {id: 3, message: 'post3', like: 12},
         ],
+        newPostText: 'hello react-js!',
     },
     messagesPage: {
         messagesData: [
@@ -17,14 +22,50 @@ let state = {
             {id: 2, name: "Pasha"},
             {id: 3, name: "Sergey"},
         ],
+        newMessageText: "hello Dima",
     },
     sidebar: {
-        friends:[
+        friends: [
             {id: 1, name: "Dima"},
             {id: 2, name: "Pasha"},
             {id: 3, name: "Sergey"},
         ]
     }
+}
+
+export const addPost = () => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        like: 15
+    };
+    state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export const addMessage = () => {
+    let newMessage = {
+        id: 4,
+        message: state.messagesPage.newMessageText,
+    };
+    state.messagesPage.messagesData.push(newMessage);
+    state.messagesPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+    state.messagesPage.newMessageText = newText;
+    rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
 }
 
 export default state;

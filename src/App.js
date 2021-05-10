@@ -5,23 +5,31 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom"
+import state, {addMessage, updateNewMessageText, updateNewPostText} from "./redux/state";
 
 
 const App = (props) => {
     return (
-            <div className="appWrapper">
-                <Header/>
-                <div className="contentNavWrapper">
-                    <Navbar sidebar={props.state.sidebar}/>
-                    <div className="appWrapperContent">
-                        <Route path="/profile" render={() => <Profile postsData={props.state.profilePage}/>}/>
-                        <Route path="/dialogs" render={() => <Dialogs state={props.state.messagesPage}/>}/>
-                        <Route path="/news"/>
-                        <Route path="/music"/>
-                        <Route path="/settings"/>
-                    </div>
+        <div className="appWrapper">
+            <Header/>
+            <div className="contentNavWrapper">
+                <Navbar sidebar={props.state.sidebar}/>
+                <div className="appWrapperContent">
+                    <Route path="/profile" render={() => <Profile postsData={props.state.profilePage}
+                                                                  addPost={props.addPost}
+                                                                  updateNewPostText={props.updateNewPostText}
+                    />}/>
+                    <Route path="/dialogs" render={() => <Dialogs state={props.state.messagesPage}
+                                                                  addMessage={props.addMessage}
+                                                                  updateNewMessageText={props.updateNewMessageText}
+                                                                  newMessageText={props.state.messagesPage.newMessageText}
+                    />}/>
+                    <Route path="/news"/>
+                    <Route path="/music"/>
+                    <Route path="/settings"/>
                 </div>
             </div>
+        </div>
     );
 }
 
