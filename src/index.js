@@ -5,7 +5,7 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/redux-store";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
@@ -26,8 +26,3 @@ store.subscribe(() => {
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-
-
-
-
