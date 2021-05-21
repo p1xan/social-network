@@ -1,6 +1,6 @@
 .dialogs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .dialogsItem {
@@ -27,11 +27,29 @@
 }
 
 .dialog a {
-
     color: #515c9d;
     text-decoration: none;
 }
 
 .dialog a.active {
     color: #1f2544;
+}
+
+.wrapperForMessage {
+    display: flex;
+}
+
+.wrapperForTextarea {
+    display: flex;
+}
+
+.wrapperForTextarea textarea {
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.wrapperForTextarea button {
+    margin-left: 30px;
+    margin-top: 30px;
 }

@@ -20,14 +20,18 @@ const Dialogs = (props) => {
     }
     return (
         <div className={styles.dialogs}>
+            <div className={styles.wrapperForMessage}>
             <div className={styles.dialogsItem}>
                 {dialogsElements}
             </div>
             <div className={styles.messages}>
                 {messagesElements}
             </div>
+            </div>
+            <div className={styles.wrapperForTextarea}>
             <textarea onChange={onMessageChange} ref={messageText} value={props.newMessageText}/>
             <button onClick={sendMessage}> Send Message</button>
+            </div>
         </div>
     )
 }
