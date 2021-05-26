@@ -10,25 +10,25 @@ let initialState = {
     newPostText: 'hello react-js!',
 }
 
- const profileReducer = (state = initialState,action) => {
-     switch (action.type) {
-         case ADD_POST: {
-             let newPost = {
-                 id: 5,
-                 message: state.newPostText,
-                 like: 15
-             };
-             let stateCopy = {...state}
-             stateCopy.postsData = [...state.postsData]
-             stateCopy.postsData.push(newPost);
-             stateCopy.newPostText = '';
-             return stateCopy
-         }
-        case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state}
-            stateCopy.newPostText = action.newText;
-            return stateCopy
-        }
+const profileReducer = (state = initialState, action) => {
+
+    switch (action.type) {
+        case ADD_POST:
+            let newPost = {
+                id: 5,
+                message: state.newPostText,
+                like: 15
+            };
+            return {
+                ...state,
+                postsData: [...state.postsData, newPost],
+                newPostText: ''
+            }
+        case UPDATE_NEW_POST_TEXT:
+            return {
+                ...state,
+                newPostText: action.newText
+            }
         default:
             return state
     }
