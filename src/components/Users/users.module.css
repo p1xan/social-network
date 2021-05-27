@@ -1,4 +1,10 @@
 .usersPhoto {
     width: 150px;
-    height: 200px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.wrapper {
+    margin-left: 30px;
+    margin-top: 20px;
 }
