@@ -6,7 +6,7 @@ let initialState = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: undefined
 };
 
 const authReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.data,
-                isAuth: true
+                isAuth: action.data.userId !== undefined
             }
 
         default:
@@ -32,6 +32,8 @@ export const getAuthUserData = () => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data
                 dispatch(setAuthUserData(id, email, login))
+            } else {
+                dispatch(setAuthUserData(undefined, undefined, undefined))
             }
         })
     }
