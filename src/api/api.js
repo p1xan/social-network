@@ -3,7 +3,7 @@ import axios from "axios";
 const instance = axios.create({
         withCredentials: true,
         headers: {
-            "API-KEY" :'5ef544a3-f9f0-42e5-96f2-1621636d3144'
+            "API-KEY" :'d288c1a7-7477-4d25-ad13-eb66c2aaf9c9'
         },
     baseURL:'https://social-network.samuraijs.com/api/1.0/'
 })
@@ -19,8 +19,25 @@ export const UsersAPI = {
         return instance.post(`follow/${userId}`).then(response => response.data)
     },
     getProfile(userId) {
+        console.warn('Deprecated  method. PLease use ProfileAPI')
+        return ProfileAPI.getProfile(userId)
+    },
+}
+
+export const ProfileAPI = {
+    getProfile(userId) {
         return instance.get(`profile/${userId}` ).then(response => response.data)
     },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`).then(response => response.data)
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status`,{status:status}).then(response => response.data)
+    }
+}
+
+
+export const AuthAPI = {
     auth() {
         return instance.get(`auth/me`).then(response => response.data)
     }
