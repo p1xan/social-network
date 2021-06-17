@@ -8,7 +8,8 @@ const Header = (props) => {
         <header className={styles.header}>
             <img src="https://i.ibb.co/RNJ320j/telegram-logo-circle-icon-134012.png" alt="logo"/>
             <div className={styles.login}>
-                {props.isAuth ? props.login :  <NavLink to="/login">Login</NavLink>}
+                {props.isAuth ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
+                    :  <NavLink to="/login">Login</NavLink>}
             </div>
         </header>
     )
