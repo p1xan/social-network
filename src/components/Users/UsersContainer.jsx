@@ -15,13 +15,13 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        const {currentPage,pageSize} = this.props
-        this.props.requestUsers(currentPage,pageSize);
+        const {currentPage, pageSize} = this.props
+        this.props.requestUsers(currentPage, pageSize);
     }
 
     onPageChanged = (pageNumber) => {
         const {pageSize} = this.props
-        this.props.requestUsers(pageNumber,pageSize);
+        this.props.requestUsers(pageNumber, pageSize);
     }
 
     render() {
@@ -52,8 +52,31 @@ let mapStateToProps = (state) => {
 }
 
 
-export default  compose(
+export default compose(
     connect(mapStateToProps,
-    {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers})
+        {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers})
 )(UsersContainer)
+
+
+function getAspectRatios(weight, height, limit) {
+    const resultArr = [];
+    const min = weight < height ? weight : height;
+    let currentWeight = weight;
+    let currentHeight = height;
+    for (let i = min / 2; i >= 2; i--) {
+        if (currentWeight % i === 0 && currentHeight % i === 0) {
+            currentWeight = currentWeight / i;
+            currentHeight = currentHeight / i;
+        }
+    }
+    let i = 1;
+    while (currentWeight * i <= limit && currentHeight * i <= limit) {
+        resultArr.push([currentWeight * i, currentHeight * i]);
+        i++;
+    }
+    return resultArr;
+}
+
+
+
 

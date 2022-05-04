@@ -8,8 +8,7 @@ import {maxLengthCreator, required} from "../../../utils/validators/validators";
 const maxLength10 = maxLengthCreator(10)
 
 const MyPosts = React.memo(props => {
-    console.log("render")
-    let posts = props.postsData.map(post => <Post message={post.message} key={post.id} like={post.like}/>)
+    let posts = props.postsData.map(post => <Post  message={post.message} key={post.id} like={post.like}/>)
 
     let addNewPost = (values) => {
         props.addPost(values.newPostText)
